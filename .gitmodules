@@ -1,0 +1,3 @@
+[submodule "deps/telefork"]
+	path = deps/telefork
+	url = https://github.com/trishume/telefork
