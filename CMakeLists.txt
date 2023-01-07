@@ -10,4 +10,4 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 link_directories("deps/telefork/target/debug/")
 add_executable(telefork_bin telefork.c)
-target_link_libraries(telefork_bin telefork)
+target_link_libraries(telefork_bin telefork -lpython3.10)

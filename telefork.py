@@ -2,9 +2,9 @@ import libtelefork
 
 
 def f():
-    print("CHILD")
+    # print("CHILD")
     # a = 1
-    return
+    return 1
 
 
 print(hex(id(f)))

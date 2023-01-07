@@ -14,7 +14,6 @@ setup.sh
 to create all needed files.
 
 
-
 TODO:
 ----
 - shell script zum aufsetztne einer testumgebung
@@ -22,10 +21,12 @@ TODO:
 - cbindgen script
 - telepad in rust exportieren
 - telepad/telefork via some kind of SSH/TLS
+- add build commands to readme
 - die ganzen error msg is telefork mal verständlicher machen. das versteh kaum einer was da ab geht.
 - vll auch das verwenden fur das python interface: https://github.com/pyo3/pyo3
 - vll ist auch die lösung ganz anders [hier](https://pyo3.rs/latest/python_from_rust.html)
 	gibt es typen die das vll auch cönnen
+- python currently not working because `libpython` which is linked into it is transferred into remote, but not mmaped into remote
 
 DEBUG:
 ----
@@ -52,7 +53,7 @@ void f() {
 int main() {
 	c_telefork("127.0.0.1:7335", f);	
 
-	// make sure that we are "spinlockin" untill everything is finished
+	// make sure that we are "spinlockin" until everything is finished
 	int i = 0;
 	while(1){
 		i++;
@@ -66,7 +67,6 @@ or in python:
 ```python
 import libtelefork
 
-
 def f():
     print("CHILD")
     return
@@ -76,6 +76,7 @@ dest = "127.0.0.1:7335"
 ret = libtelefork.py_telefork(dest, id(f))
 print("ret:", ret)
 
+# loop to make sure the program is not killed befor forking
 i = 0
 while True:
 	i += 1;
