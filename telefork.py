@@ -2,7 +2,7 @@ import libtelefork
 
 
 def f():
-    # print("CHILD")
+    print("CHILD")
     # a = 1
     return 1
 

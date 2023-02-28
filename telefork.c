@@ -1,8 +1,10 @@
 #include "telefork.h"
 #include <stdio.h>
+#include <math.h>
 
 void f() {
-	printf("child\n");
+	const float x = sqrtf(2.);
+	printf("child: %f\n", x);
 }
 
 int main() {
